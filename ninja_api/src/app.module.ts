@@ -17,10 +17,10 @@ import {TypeOrmModule} from '@nestjs/typeorm'
     }),
     //typeorm dependencies
     TypeOrmModule.forRoot({
-      type : 'sqlite',
+      type : 'sqlite', // can use [':memory:'] whcih will create an inmemory database but that will recreate at every app start
       database : 'app.db',
       entities : ['dist/**/entities/*.entity{.ts,.js}'],
-      synchronize : true,
+      synchronize : true, // warning : don't use in prod, use migrations instead
     }),
     UserModule, 
     PetsModule],
